@@ -1,16 +1,930 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  /* --uicolor: linear-gradient(45deg, #dae2f8, #d6a4a4); */
+  /* --uicolor: linear-gradient(45deg, #283048, #859398); */
+  /* --uicolor: linear-gradient(45deg, #ff8008, #ffc837); */
+  /* --uicolor: linear-gradient(45deg, #1d976c, #93f9b9); */
+  /* --uicolor: linear-gradient(45deg, #dd5e89, #f7bb97); */
+  /* --uicolor: linear-gradient(45deg, #1d2b64, #f8cdda); */
+  /* --uicolor: linear-gradient(45deg, #ff512f, #dd2476); */
+  /* --uicolor: linear-gradient(45deg, #cc95c0, #dbd4b4, #7aa1d2); */
+  /* --uicolor: linear-gradient(45deg, #ede574, #e1f5c4); */
+  /* --uicolor: linear-gradient(45deg, #ff6e7f, #bfe9ff); */
+  /* --uicolor: linear-gradient(45deg, #1488cc, #2b32b2); */
+  /* --uicolor: linear-gradient(45deg, #ff6e7f, #bfe9ff); */
+  /* --uicolor: linear-gradient(45deg, #02aab0, #00cdac); */
+  --uicolor: linear-gradient(45deg, #348f50, #56b4d3);
+  /* --uicolor: linear-gradient(45deg, #e55d87, #5fc3e4); */
+  --choicecolor: #348f50;
+}
+.uigradient {
+  background: var(--uicolor);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.listNavAnim {
+  transition: transform 1s;
+  transform: translateX(-190px);
 }
 
-* {
-  box-sizing: border-box;
+.listNavAnim:hover {
+  transform: translateX(0px);
+}
+
+.listNavAnim:hover .listNav .listNav_sView {
+  display: none !important;
+}
+
+.listNav {
+  width: 250px;
+  height: 420px;
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.listNav .listNav_sView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 65px;
+  height: 100%;
+}
+
+.listNav .listNav_sView .listNav_sViewList {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+  border-radius: 5px;
+}
+
+.listNav .listNav_sView .listNav_sViewList::before {
+  content: "";
+  background: whitesmoke;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  left: 23px;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+}
+
+.listNav .listNav_sView .listNav_sViewList img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 5px;
+}
+
+.listNavAnim:hover .listNav .listNav_lView {
+  display: block !important;
+}
+
+.listNav .listNav_lView {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.listNav .listNav_lView .yourListView {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  color: whitesmoke;
+  padding: 10px;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView .yHeadpart-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView .yHeadpart-1 .yHeadpart-1-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yHeadView
+  .yHeadpart-1
+  .yHeadpart-1-1
+  .yHeadpart-1-1-1 {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: black;
+  width: 30px;
+  height: 30px;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yHeadView
+  .yHeadpart-1
+  .yHeadpart-1-1
+  .yHeadpart-1-1-2 {
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView .yHeadpart-1 .yHeadpart-1-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yHeadView
+  .yHeadpart-1
+  .yHeadpart-1-2
+  .yHeadpart-1-2-1 {
+  width: 20px;
+  height: 20px;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yHeadView
+  .yHeadpart-1
+  .yHeadpart-1-2
+  .yHeadpart-1-2-1
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yHeadView
+  .yHeadpart-1
+  .yHeadpart-1-2
+  .yHeadpart-1-2-2 {
+  width: 30px;
+  height: 20px;
+  font-weight: 300;
+  font-size: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView .yHeadpart-2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView .yHeadpart-2 span {
+  border: 1px solid whitesmoke;
+  border-radius: 20px;
+  font-size: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.listNav .listNav_lView .yourListView .yHeadView .yHeadpart-2 span:hover {
+  background: var(--choicecolor);
+  border-color: var(--choicecolor);
+}
+
+.listNav .listNav_lView .yourListView .yPlayView {
+  width: 100%;
+}
+
+.listNav .listNav_lView .yourListView .yPlayView .arrangeView {
+  width: 100%;
+}
+
+.listNav .listNav_lView .yourListView .yPlayView .contentView {
+  width: 100%;
+  padding: 5px;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yPlayView
+  .contentView
+  .contentView-part-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yPlayView
+  .contentView
+  .contentView-part-1
+  .contentView-part-1-1 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+  border-radius: 5px;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yPlayView
+  .contentView
+  .contentView-part-1
+  .contentView-part-1-1::before {
+  content: "";
+  background: whitesmoke;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  left: 23px;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yPlayView
+  .contentView
+  .contentView-part-1
+  .contentView-part-1-1
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 5px;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yPlayView
+  .contentView
+  .contentView-part-1
+  .contentView-part-1-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: whitesmoke;
+  margin-left: 10px;
+}
+
+.listNav
+  .listNav_lView
+  .yourListView
+  .yPlayView
+  .contentView
+  .contentView-part-1
+  .contentView-part-1-2
+  span {
+  font-size: 15px;
+}
+
+.searchBar {
+  width: 600px;
+  height: 70px;
+}
+
+.searchBar .searchBar-part-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 5px;
+  width: 100%;
+  height: 20px;
+}
+
+.searchBar .searchBar-part-2 span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.searchBar .searchBar-part-2 span:hover {
+  background: var(--choicecolor);
+  border-color: var(--choicecolor);
+}
+
+.searchBar .searchContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  padding: 5px;
+  padding-left: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.searchBar .searchContainer .iiconContainer {
+  width: 25px;
+  height: 25px;
+}
+
+.searchBar .searchContainer .iiconContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.searchBar .searchContainer .inputContainer {
+  width: 80%;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.searchBar .searchContainer .inputContainer input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  background: transparent;
+  outline: none;
+  color: whitesmoke;
+}
+
+.searchBar .searchContainer .inputContainer input::placeholder {
+  color: whitesmoke;
+}
+
+.searchView {
+  width: 760px;
+  height: 400px;
+}
+
+.searchView .searchView-part-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.searchView .searchView-part-1 span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.searchView .searchView-part-1 span:hover {
+  background: var(--choicecolor);
+  border-color: var(--choicecolor);
+}
+
+.searchView .searchView-part-2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 90%;
+}
+
+.searchView .searchView-part-2 .searchView-part-2-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.searchView .searchView-part-2 .searchView-part-2-1 .searchView-part-2-1-1 {
+  width: 140px;
+  height: 140px;
+  user-select: none;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+  border-radius: 15px;
+  position: relative;
+}
+
+.searchView
+  .searchView-part-2
+  .searchView-part-2-1
+  .searchView-part-2-1-1::before {
+  content: "";
+  background: whitesmoke;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 20px;
+  left: 75px;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+}
+
+.searchView .searchView-part-2 .searchView-part-2-1 .searchView-part-2-1-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 15px;
+}
+
+.searchView .searchView-part-2 .searchView-part-2-1 span {
+  color: whitesmoke;
+}
+
+.searchView .searchView-part-2 .searchView-part-2-1 .searchView-part-2-1-3 {
+  font-size: 10px;
+}
+
+.nav {
+  width: 420px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+.nav ul {
+  width: 350px;
+}
+.nav ul li {
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+.nav ul li div .icon {
+  line-height: 75px;
+  font-size: 1.5em;
+  transition: 0.5s;
+  color: whitesmoke;
+}
+.nav ul li.active div .icon {
+  transform: translateY(-32px);
+}
+.nav ul li div .text {
+  color: whitesmoke;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  transform: translateY(20px);
+}
+.nav ul li.active div .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+.sel {
+  top: -57%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+  backdrop-filter: blur(20px);
+}
+.sel::before {
+  content: "";
+  position: absolute;
+  top: 33%;
+  left: -20px;
+  width: 20px;
+  height: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transform: rotate(182deg);
+  backdrop-filter: blur(20px);
+}
+.sel::after {
+  content: "";
+  position: absolute;
+  top: 33%;
+  right: -20px;
+  width: 20px;
+  height: 20px;
+  border-top-left-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transform: rotate(182deg);
+  backdrop-filter: blur(20px);
+}
+.nav ul li:nth-child(1).active ~ .sel {
+  transform: translateX(calc(70px * 0));
+}
+.nav ul li:nth-child(2).active ~ .sel {
+  transform: translateX(calc(70px * 1));
+}
+.nav ul li:nth-child(3).active ~ .sel {
+  transform: translateX(calc(70px * 2));
+}
+.nav ul li:nth-child(4).active ~ .sel {
+  transform: translateX(calc(70px * 3));
+}
+.nav ul li:nth-child(5).active ~ .sel {
+  transform: translateX(calc(70px * 4));
+}
+
+.Box {
+  position: relative;
+  width: 320px;
+  height: 520px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 5;
+}
+.Box::-webkit-scrollbar {
+  width: 10px;
+}
+.Box::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.Box .sBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  height: 50px;
+  margin-top: 5px;
+  user-select: none;
+  padding: 5px;
+  color: whitesmoke;
+}
+
+.Box .sBox .sBox_Cover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.Box .sBox .sBox_Cover .sBox_Artist {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5px;
+}
+
+.Box .sBox .sBox_Cover .sBox_CoverImg {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+  border-radius: 8px;
+}
+
+.Box .sBox .sBox_Cover .sBox_CoverImg::before {
+  content: "";
+  background: whitesmoke;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  left: 23px;
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%),
+    0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%),
+    0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+}
+
+.Box .sBox .sBox_Cover .sBox_CoverImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 10;
+}
+.overlay .player {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 200px;
+  background: var(--uicolor);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.overlay .player .album {
+  position: absolute;
+  top: -160px;
+  left: 90px;
+  user-select: none;
+}
+.overlay .player .album .album_img {
+  width: 140px;
+  height: 140px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+  border-radius: 10px;
+}
+.overlay .player .album .album_img::before {
+  content: "";
+  background: whitesmoke;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 20px;
+  right: -40px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.overlay .player .album .album_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 10px;
+}
+.overlay .player .playBox {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+.overlay .player .playBox .song_attr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.overlay .player .playBox .song_attr .song_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: whitesmoke;
+}
+.overlay .player .playBox .song_attr .song_info .song_name {
+  font-weight: 900;
+}
+.overlay .player .playBox .song_attr .song_prodiv {
+  width: 100%;
+  height: 6px;
+  user-select: none;
+}
+.overlay .player .playBox .song_attr .song_prodiv .song_progress {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+  flex: 10;
+  cursor: pointer;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.overlay .player .playBox .song_attr .song_prodiv .song_progress .part {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+  flex: 0;
+  flex-basis: 0%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.overlay .player .playBox .song_attr .song_prodiv .song_progress .thumb {
+  position: relative;
+  height: 2px;
+  width: 3px;
+  background-color: yellow;
+  cursor: pointer;
+  display: none;
+}
+.overlay .player .playBox .song_attr .song_prodiv .song_progress .thumb.pause {
+  position: relative;
+  top: -2.5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: green;
+  cursor: pointer;
+}
+.overlay .player .playBox .song_attr .song_durr {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  color: whitesmoke;
+}
+.overlay .player .playBox .song_attr .song_butt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.overlay .player .playBox .song_attr .song_butt .prev_butt {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.overlay .player .playBox .song_attr .song_butt .prev_butt img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.overlay .player .playBox .song_attr .song_butt .backward_butt {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+.overlay .player .playBox .song_attr .song_butt .backward_butt svg {
+  fill: white;
+}
+.overlay .player .playBox .song_attr .song_butt .play_butt {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  cursor: pointer;
+}
+.overlay .player .playBox .song_attr .song_butt .forward_butt {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+.overlay .player .playBox .song_attr .song_butt .forward_butt svg {
+  fill: white;
+}
+.overlay .player .playBox .song_attr .song_butt .next_butt {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.overlay .player .playBox .song_attr .song_butt .next_butt img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.overlay .player .playBox .song_attr .extra_butt {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
